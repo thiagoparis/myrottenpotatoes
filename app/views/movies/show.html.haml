@@ -6,9 +6,16 @@
   %li
     Rating:
     = @movie.rating
+    
+    -# Debugging exemple
+    -#= debug(@movie)
+
   %li
     Released on:
     = @movie.release_date.strftime("%B %d, %Y")
+
+    -# Debugging exemple
+    -#= @movie.inspect
 
 %h3 Description
 
