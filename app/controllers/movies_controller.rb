@@ -21,5 +21,14 @@ class MoviesController < ApplicationController
     # default: render 'new' view template
   end
 
+  def create
+    #byebug
+    @movie = Movie.create!(params[:movie])
+    # flash is a kind of hash that persists from the current request to the next.
+    # flash[:notice] for information and flash[:warning] for when things are going wrong.
+    flash[:notice] = "#{@movie.title} was successfully created."
+    redirect_to movies_path
+  end
+
 end
 
