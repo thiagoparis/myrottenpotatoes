@@ -3,7 +3,8 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = Movie.all.order(title: :asc)
+    #@movies = Movie.all.order(title: :asc)
+    @movies = Movie.all.sort {|a,b| a.title <=> b.title}
   end
 
   def show
