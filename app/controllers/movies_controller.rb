@@ -27,7 +27,12 @@ class MoviesController < ApplicationController
     # flash is a kind of hash that persists from the current request to the next.
     # flash[:notice] for information and flash[:warning] for when things are going wrong.
     flash[:notice] = "#{@movie.title} was successfully created."
-    redirect_to movies_path
+    
+    # Project 4.2 - Instead of redirecting the the Index action, redirect to the show
+    # action of the movie just created.
+    #redirect_to movies_path
+    redirect_to movie_path(@movie)
+
   end
 
   def edit
