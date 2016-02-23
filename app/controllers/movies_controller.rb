@@ -20,19 +20,30 @@ class MoviesController < ApplicationController
 
   def new
     # default: render 'new' view template
+    @movie = Movie.new
   end
 
   def create
     #byebug
-    @movie = Movie.create!(params[:movie])
-    # flash is a kind of hash that persists from the current request to the next.
-    # flash[:notice] for information and flash[:warning] for when things are going wrong.
-    flash[:notice] = "#{@movie.title} was successfully created."
+
+    #Replaced the create! method for new method in order to use validations
+    #@movie = Movie.create!(params[:movie])
+
+    @movie = Movie.new(params[:movie])
+    if @movie.save
     
-    # Project 4.2 - Instead of redirecting the the Index action, redirect to the show
-    # action of the movie just created.
-    #redirect_to movies_path
-    redirect_to movie_path(@movie)
+      # flash is a kind of hash that persists from the current request to the next.
+      # flash[:notice] for information and flash[:warning] for when things are going wrong.
+      flash[:notice] = "#{@movie.title} was successfully created."
+    
+      # Project 4.2 - Instead of redirecting the the Index action, redirect to the show
+      # action of the movie just created.
+      #redirect_to movies_path
+      redirect_to movie_path(@movie)
+
+    else
+      render 'new'
+    end
 
   end
 
@@ -42,9 +53,16 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find params[:id]
-    @movie.update_attributes!(params[:movie])
-    flash[:notice] = "#{@movie.title} was successfully updated."
-    redirect_to movie_path(@movie)
+
+    # Replaced the update_attributes! method to update_attributes method in order to use validations.
+    #@movie.update_attributes!(params[:movie]) 
+    if @movie.update_attributes(params[:movie])
+      flash[:notice] = "#{@movie.title} was successfully updated."
+      redirect_to movie_path(@movie)
+    else
+      render 'edit'
+    end
+
   end
 
   def destroy
