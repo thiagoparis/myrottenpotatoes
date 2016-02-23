@@ -2,14 +2,17 @@
 
 = form_tag movies_path, :method => :post do
 
-  = label :movie, :title, 'Title'
-  = text_field :movie, :title
+  -# Replaced form for a partial, in order to improve DRYness.
+  -#= label :movie, :title, 'Title'
+  -#= text_field :movie, :title
 
-  = label :movie, :rating, 'Rating'
-  = select :movie, :rating, ['G','PG','PG-13','R','NC-17']
+  -#= label :movie, :rating, 'Rating'
+  -#= select :movie, :rating, ['G','PG','PG-13','R','NC-17']
 
-  = label :movie, :release_date, 'Released On'
-  = date_select :movie, :release_date
+  -#= label :movie, :release_date, 'Released On'
+  -#= date_select :movie, :release_date
+
+  = render :partial => 'movie_form'
 
   = submit_tag 'Save Changes'
 
