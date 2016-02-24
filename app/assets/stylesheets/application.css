@@ -29,6 +29,15 @@ div#main {
   margin: 0;
   padding: 0 20px 20px;
 }
+div.user_top_menu {
+  color: white;
+  background-color: black;
+}
+div.user_top_menu a {
+  color: white;
+  background-color: black;
+  text-decoration: underline;
+}
 a {
   background: transparent;
   color: maroon;
@@ -52,8 +61,7 @@ h1.title {
   font-size: 2em;
   font-style: normal;
 }
-h1.title
-a {
+h1.title a {
   color: red;
   text-decoration: none;
 }
