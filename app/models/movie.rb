@@ -2,6 +2,8 @@ class Movie < ActiveRecord::Base
   
   attr_accessible :title, :rating, :description, :release_date
 
+  has_many :reviews
+
   def self.all_ratings ; %w[G PG PG-13 R NC-17] ; end
 
   validates :title, :presence => true
