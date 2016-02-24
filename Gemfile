@@ -69,4 +69,9 @@ end
 
 gem 'protected_attributes'
 
+# Adding gems omniauth in order to enable Thirdy-part Authentication
+
+gem 'omniauth'
+gem 'omniauth-twitter'
+
 # end
