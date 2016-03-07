@@ -12,8 +12,14 @@ class MoviesController < ApplicationController
     @movie = Movie.find(id) # Lookup movie by unique ID
 
     # Will render the partial if it is a xhr (XmlHttpRequest - AJAX)
-    render(:partial => '/movies/movie_popup', :object => @movie) if request.xhr?
+    #render(:partial => '/movies/movie_popup', :object => @movie) if request.xhr?
 
+    if request.xhr?
+      respond_to do |format|
+        format.html { render(:partial => '/movies/movie_popup', :object => @movie) }
+        format.json { render json: @movie }
+      end
+    end
     # Else will render app/views/movies/show.html.haml by defaylt
     
     #Debugging exemples
