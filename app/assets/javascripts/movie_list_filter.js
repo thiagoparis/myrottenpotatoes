@@ -18,4 +18,6 @@ var MovieListFilter = {
 
 }
 
-$(MovieListFilter.setup); // run setup function when documento ready.
+// Changed to accomodate Turbolinks
+//$(MovieListFilter.setup); // run setup function when documento ready.
+$(document).on('page:change', MovieListFilter.setup);
