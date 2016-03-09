@@ -49,7 +49,9 @@ class MoviesController < ApplicationController
       # Project 4.2 - Instead of redirecting the the Index action, redirect to the show
       # action of the movie just created.
       #redirect_to movies_path
-      redirect_to movie_path(@movie)
+      #redirect_to movie_path(@movie)
+
+      redirect_to movies_path
 
     else
       render 'new'
