@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
+  # Route that posts 'Search TMDb' form
+  post '/movies/search_tmdb'
+
   get 'auth/:provider/callback' => 'sessions#create'
   post 'logout' => 'sessions#destroy'
   get 'auth/failure' => 'sessions#failure'
