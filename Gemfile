@@ -87,3 +87,20 @@ group :test do
 end
 
 # end
+
+# Adding RSpec and Autotest for testing
+
+group :test do
+  gem 'rspec-rails'
+  #gem 'autotest-rails'
+  gem 'rspec-autotest'
+  gem 'ZenTest'
+end
+
+# end
+
+# Adding themoviedb to work with TMDb
+
+gem 'themoviedb'
+
+# end
